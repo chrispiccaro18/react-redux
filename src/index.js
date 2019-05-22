@@ -21,6 +21,8 @@ function reducer(state = initialState, action) {
       return { ...state, chips: null };
     case 'REMOVE_SAND':
       return { ...state, sandwich: null };
+    case 'EMPTY':
+      return { ...initialState };
     default:
       return state;
   }
@@ -42,19 +44,12 @@ store.dispatch({
   payload: 'salt & vin'
 });
 
+
 store.dispatch({
   type: 'ADD_SAND',
   payload: 'roast beef'
 });
 
 store.dispatch({
-  type: 'REMOVE_DRINK'
-});
-
-store.dispatch({
-  type: 'REMOVE_CHIPS'
-});
-
-store.dispatch({
-  type: 'REMOVE_SAND'
+  type: 'EMPTY'
 });
