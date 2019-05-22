@@ -1,5 +1,5 @@
 import reducer from './lunchReducer';
-import { addDrink, removeDrink, addChips, removeChips, addSand, removeSand } from '../actions/lunchActions';
+import { addDrink, removeDrink, addChips, removeChips, addSand, removeSand, empty } from '../actions/lunchActions';
 
 describe('lunch reducer', () => {
   it('can handle adding a drink', () => {
@@ -82,6 +82,20 @@ describe('lunch reducer', () => {
     expect(reducer(initialState, removeSand('jam'))).toEqual({
       drink: ['coconut water'],
       chips: ['salt & pepper'],
+      sandwich: []
+    });
+  });
+
+  it('can handle emptying', () => {
+    const initialState = {
+      drink: ['coconut water'],
+      chips: ['salt & pepper'],
+      sandwich: ['jam']
+    };
+
+    expect(reducer(initialState, empty())).toEqual({
+      drink: [],
+      chips: [],
       sandwich: []
     });
   });
