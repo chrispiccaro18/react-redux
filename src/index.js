@@ -1,8 +1,21 @@
-import React from 'react';
-import { render } from 'react-dom';
-import App from './components/App';
+import { createStore } from 'redux';
 
-render(
-  <App />,
-  document.getElementById('root')
-);
+const initialState = {
+  drink: null,
+  chips: null,
+  sandwich: null
+};
+
+function reducer(state = initialState, action) {
+  const { type, payload } = action;
+  switch(type) {
+    case 'ADD_DRINK':
+      return { ...state, drink: payload };
+    default:
+      return state;
+  }
+}
+
+const store = createStore(reducer);
+
+console.log(store.getState());
