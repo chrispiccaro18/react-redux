@@ -1,4 +1,4 @@
-import { createPost, CREATE_POST, deletePost, DELETE_POST } from "./postActions";
+import { createPost, CREATE_POST, deletePost, DELETE_POST, updatePost, UPDATE_POST } from "./postActions";
 
 describe('post actions tests', () => {
   it('can create a post', () => {
@@ -15,6 +15,15 @@ describe('post actions tests', () => {
     expect(deletePost(testTitle)).toEqual({
       type: DELETE_POST,
       payload: { title: testTitle }
+    });
+  });
+  
+  it('can update a post', () => {
+    const id = '001'
+    const testBody = 'test test test';
+    expect(updatePost(id, testBody)).toEqual({
+      type: UPDATE_POST,
+      payload: { id, body: testBody }
     });
   });
 });
