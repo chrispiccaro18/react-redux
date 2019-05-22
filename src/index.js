@@ -16,11 +16,11 @@ function reducer(state = initialState, action) {
     case 'ADD_SAND':
       return { ...state, sandwich: [...state.sandwich, payload] };
     case 'REMOVE_DRINK':
-      return { ...state, drink: null };
+      return { ...state, drink: state.drink.filter(d => d !== payload) };
     case 'REMOVE_CHIPS':
-      return { ...state, chips: null };
+      return { ...state, chips: state.chips.filter(c => c !== payload) };
     case 'REMOVE_SAND':
-      return { ...state, sandwich: null };
+      return { ...state, sandwich: state.sandwich.filter(s => s !== payload) };
     case 'EMPTY':
       return { ...initialState };
     default:
@@ -50,33 +50,17 @@ store.dispatch({
 });
 
 store.dispatch({
-  type: 'EMPTY'
-});
-
-store.dispatch({
-  type: 'ADD_DRINK',
+  type: 'REMOVE_DRINK',
   payload: 'coconut water'
 });
 
 store.dispatch({
-  type: 'ADD_CHIPS',
+  type: 'REMOVE_CHIPS',
   payload: 'salt & vin'
 });
 
 store.dispatch({
-  type: 'ADD_SAND',
+  type: 'REMOVE_SAND',
   payload: 'roast beef'
-});
-
-store.dispatch({
-  type: 'REMOVE_DRINK'
-});
-
-store.dispatch({
-  type: 'REMOVE_CHIPS'
-});
-
-store.dispatch({
-  type: 'REMOVE_SAND'
 });
 
