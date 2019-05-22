@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import { addDrink, ADD_DRINK } from './actions/lunchActions';
+import { addDrink, ADD_DRINK, ADD_CHIPS, ADD_SAND, addChips, addSand, REMOVE_DRINK, REMOVE_CHIPS, REMOVE_SAND, removeDrink, removeChips, removeSand } from './actions/lunchActions';
 
 const initialState = {
   drink: [],
@@ -12,15 +12,15 @@ function reducer(state = initialState, action) {
   switch(type) {
     case ADD_DRINK:
       return { ...state, drink: [...state.drink, payload] };
-    case 'ADD_CHIPS':
+    case ADD_CHIPS:
       return { ...state, chips: [...state.chips, payload] };
-    case 'ADD_SAND':
+    case ADD_SAND:
       return { ...state, sandwich: [...state.sandwich, payload] };
-    case 'REMOVE_DRINK':
+    case REMOVE_DRINK:
       return { ...state, drink: state.drink.filter(d => d !== payload) };
-    case 'REMOVE_CHIPS':
+    case REMOVE_CHIPS:
       return { ...state, chips: state.chips.filter(c => c !== payload) };
-    case 'REMOVE_SAND':
+    case REMOVE_SAND:
       return { ...state, sandwich: state.sandwich.filter(s => s !== payload) };
     case 'EMPTY':
       return { ...initialState };
@@ -37,28 +37,13 @@ store.subscribe(() => {
 
 store.dispatch(addDrink('coconut water'));
 
-store.dispatch({
-  type: 'ADD_CHIPS',
-  payload: 'salt & vin'
-});
+store.dispatch(addChips('salt & vin'));
 
-store.dispatch({
-  type: 'ADD_SAND',
-  payload: 'roast beef'
-});
+store.dispatch(addSand('roast beef'));
 
-store.dispatch({
-  type: 'REMOVE_DRINK',
-  payload: 'coconut water'
-});
+store.dispatch(removeDrink('coconut water'));
 
-store.dispatch({
-  type: 'REMOVE_CHIPS',
-  payload: 'salt & vin'
-});
+store.dispatch(removeChips('salt & vin'));
 
-store.dispatch({
-  type: 'REMOVE_SAND',
-  payload: 'roast beef'
-});
+store.dispatch(removeSand('roast beef'));
 
