@@ -16,17 +16,14 @@ function reducer(state = initialState, action) {
   }
 }
 
-const store = createStore(reducer);
+store.subscribe(() => {
+  console.log(store.getState());
+});
 
-log();
+const store = createStore(reducer);
 
 store.dispatch({
   type: 'ADD_DRINK',
   payload: 'coconut water'
 });
 
-log();
-
-function log() {
-  console.log(store.getState());
-}
