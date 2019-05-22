@@ -53,5 +53,30 @@ store.dispatch({
   type: 'EMPTY'
 });
 
+store.dispatch({
+  type: 'ADD_DRINK',
+  payload: 'coconut water'
+});
 
+store.dispatch({
+  type: 'ADD_CHIPS',
+  payload: 'salt & vin'
+});
+
+store.dispatch({
+  type: 'ADD_SAND',
+  payload: 'roast beef'
+});
+
+store.dispatch({
+  type: 'REMOVE_DRINK'
+});
+
+store.dispatch({
+  type: 'REMOVE_CHIPS'
+});
+
+store.dispatch({
+  type: 'REMOVE_SAND'
+});
 
