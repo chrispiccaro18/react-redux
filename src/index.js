@@ -11,19 +11,32 @@ function reducer(state = initialState, action) {
   switch(type) {
     case 'ADD_DRINK':
       return { ...state, drink: payload };
+    case 'ADD_CHIPS':
+      return { ...state, chips: payload };
+    case 'ADD_SAND':
+      return { ...state, sandwich: payload };
     default:
       return state;
   }
 }
 
+const store = createStore(reducer);
+
 store.subscribe(() => {
   console.log(store.getState());
 });
-
-const store = createStore(reducer);
 
 store.dispatch({
   type: 'ADD_DRINK',
   payload: 'coconut water'
 });
 
+store.dispatch({
+  type: 'ADD_CHIPS',
+  payload: 'salt & vin'
+});
+
+store.dispatch({
+  type: 'ADD_SAND',
+  payload: 'roast beef'
+});
