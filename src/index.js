@@ -18,11 +18,15 @@ function reducer(state = initialState, action) {
 
 const store = createStore(reducer);
 
-console.log(store.getState());
+log();
 
 store.dispatch({
   type: 'ADD_DRINK',
   payload: 'coconut water'
 });
 
-console.log(store.getState());
+log();
+
+function log() {
+  console.log(store.getState());
+}
