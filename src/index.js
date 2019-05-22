@@ -19,3 +19,10 @@ function reducer(state = initialState, action) {
 const store = createStore(reducer);
 
 console.log(store.getState());
+
+store.dispatch({
+  type: 'ADD_DRINK',
+  payload: 'coconut water'
+});
+
+console.log(store.getState());
