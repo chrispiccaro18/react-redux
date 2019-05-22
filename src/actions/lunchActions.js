@@ -4,6 +4,7 @@ const ADD_SAND = 'ADD_SAND';
 const REMOVE_DRINK = 'REMOVE_DRINK';
 const REMOVE_CHIPS = 'REMOVE_CHIPS';
 const REMOVE_SAND = 'REMOVE_SAND';
+const EMPTY = 'EMPTY';
 
 const addDrink = drink => ({
   type: ADD_DRINK,
@@ -35,6 +36,10 @@ const removeSand = sandwich => ({
   payload: sandwich
 });
 
+const empty = () => ({
+  type: EMPTY
+});
+
 export {
   ADD_DRINK,
   ADD_CHIPS,
@@ -42,10 +47,12 @@ export {
   REMOVE_DRINK,
   REMOVE_CHIPS,
   REMOVE_SAND,
+  EMPTY,
   addDrink,
   addChips,
   addSand,
   removeDrink,
   removeChips,
-  removeSand
+  removeSand,
+  empty
 };

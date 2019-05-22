@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import { addDrink, ADD_DRINK, ADD_CHIPS, ADD_SAND, addChips, addSand, REMOVE_DRINK, REMOVE_CHIPS, REMOVE_SAND, removeDrink, removeChips, removeSand } from './actions/lunchActions';
+import { addDrink, ADD_DRINK, ADD_CHIPS, ADD_SAND, addChips, addSand, REMOVE_DRINK, REMOVE_CHIPS, REMOVE_SAND, removeDrink, removeChips, removeSand, EMPTY, empty } from './actions/lunchActions';
 
 const initialState = {
   drink: [],
@@ -22,7 +22,7 @@ function reducer(state = initialState, action) {
       return { ...state, chips: state.chips.filter(c => c !== payload) };
     case REMOVE_SAND:
       return { ...state, sandwich: state.sandwich.filter(s => s !== payload) };
-    case 'EMPTY':
+    case EMPTY:
       return { ...initialState };
     default:
       return state;
@@ -47,3 +47,10 @@ store.dispatch(removeChips('salt & vin'));
 
 store.dispatch(removeSand('roast beef'));
 
+store.dispatch(addDrink('coconut water'));
+
+store.dispatch(addChips('salt & vin'));
+
+store.dispatch(addSand('roast beef'));
+
+store.dispatch(empty());
