@@ -15,7 +15,7 @@ const deletePost = title => ({
 const updatePost = (id, body) => ({
   type: UPDATE_POST,
   payload: { id, body }
-})
+});
 
 export {
   CREATE_POST,
