@@ -13,7 +13,7 @@ export default function postReducer(state = initialState, action) {
       return { posts: state.posts.filter(post => post.title !== payload.title) };
     case UPDATE_POST: {
       const { index, body } = payload;
-      const updatedPosts = updateArrayWithIndex(state.posts, index, body);
+      const updatedPosts = updatePostWithIndex(state.posts, index, body);
       return { posts: [...updatedPosts] };
     }
     default:
@@ -21,7 +21,7 @@ export default function postReducer(state = initialState, action) {
   }
 }
 
-function updateArrayWithIndex(arr, index, update) {
+function updatePostWithIndex(arr, index, update) {
   const newArray = [];
   for(let i = 0; i < arr.length; i++) {
     if(i === index) {
