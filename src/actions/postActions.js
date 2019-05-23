@@ -12,9 +12,9 @@ const deletePost = title => ({
   payload: { title }
 });
 
-const updatePost = (id, body) => ({
+const updatePost = (index, body) => ({
   type: UPDATE_POST,
-  payload: { id, body }
+  payload: { index, body }
 });
 
 export {

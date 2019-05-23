@@ -19,11 +19,11 @@ describe('post actions tests', () => {
   });
   
   it('can update a post', () => {
-    const id = '001'
+    const index = 1
     const testBody = 'test test test';
-    expect(updatePost(id, testBody)).toEqual({
+    expect(updatePost(index, testBody)).toEqual({
       type: UPDATE_POST,
-      payload: { id, body: testBody }
+      payload: { index, body: testBody }
     });
   });
 });
