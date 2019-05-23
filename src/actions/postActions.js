@@ -7,9 +7,9 @@ const createPost = (title, body) => ({
   payload: { title, body }
 });
 
-const deletePost = title => ({
+const deletePost = index => ({
   type: DELETE_POST,
-  payload: { title }
+  payload: { index }
 });
 
 const updatePost = (index, body) => ({

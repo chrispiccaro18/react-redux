@@ -10,7 +10,10 @@ export default function postReducer(state = initialState, action) {
     case CREATE_POST:
       return { posts: [...state.posts, payload] };
     case DELETE_POST:
-      return { posts: state.posts.filter(post => post.title !== payload.title) };
+      return { posts: [
+        ...state.posts.slice(0, payload.index),
+        ...state.posts.slice(payload.index + 1)
+      ] };
     case UPDATE_POST: {
       const { index, body } = payload;
       const updatedPosts = state.posts.map((post, i) => {

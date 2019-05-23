@@ -41,9 +41,9 @@ describe('post reducer tests', () => {
       ]
     };
 
-    const testTitle = 'My Post';
+    const testIndex = 0;
 
-    expect(postReducer(initialState, deletePost(testTitle))).toEqual({
+    expect(postReducer(initialState, deletePost(testIndex))).toEqual({
       posts: [
         {
           title: 'Not My Post',

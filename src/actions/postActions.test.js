@@ -11,10 +11,10 @@ describe('post actions tests', () => {
   });
   
   it('can delete a post', () => {
-    const testTitle = 'test';
-    expect(deletePost(testTitle)).toEqual({
+    const testIndex = 1;
+    expect(deletePost(testIndex)).toEqual({
       type: DELETE_POST,
-      payload: { title: testTitle }
+      payload: { index: testIndex }
     });
   });
   
