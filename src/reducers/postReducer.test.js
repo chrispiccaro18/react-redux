@@ -18,6 +18,9 @@ describe('post reducer tests', () => {
         }
       ]
     });
+    expect(initialState).toEqual({
+      posts: []
+    });
   });
   
   it('can delete a post', () => {
@@ -42,6 +45,22 @@ describe('post reducer tests', () => {
 
     expect(postReducer(initialState, deletePost(testTitle))).toEqual({
       posts: [
+        {
+          title: 'Not My Post',
+          body: 'lorem ipsum'
+        },
+        {
+          title: 'Also Not My Post',
+          body: 'lorem ipsum'
+        }
+      ]
+    });
+    expect(initialState).toEqual({
+      posts: [
+        {
+          title: 'My Post',
+          body: 'lorem ipsum'
+        },
         {
           title: 'Not My Post',
           body: 'lorem ipsum'
@@ -88,6 +107,22 @@ describe('post reducer tests', () => {
         {
           title: 'My Post',
           body: 'here i am to save the day'
+        }
+      ]
+    });
+    expect(initialState).toEqual({
+      posts: [
+        {
+          title: 'Also Not My Post',
+          body: 'lorem ipsum'
+        },
+        {
+          title: 'Not My Post',
+          body: 'lorem ipsum'
+        },
+        {
+          title: 'My Post',
+          body: 'this should change'
         }
       ]
     });
