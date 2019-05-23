@@ -20,7 +20,7 @@ export default class PostForm extends PureComponent {
   render() {
     const { title, body } = this.state;
     return (
-      <form onSubmit={this.props.onSubmit}>
+      <form onSubmit={this.props.onSubmit(title, body)}>
         <input type="text" name="title" value={title} onChange={this.handleChange} />
         <input type="text" name="body" value={body} onChange={this.handleChange} />
         <button>Create</button>
