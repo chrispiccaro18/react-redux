@@ -63,3 +63,14 @@ Demo [Redux Vanilla Lunch Reducers](https://demo.alchemycodelab.io/redux-vanilla
   * handle create a comment
   * handle delete a comment
   * delete post should also delete all comments
+
+  # Redux Selector Exercises
+
+## Blog selectors
+
+* create a blog-selectors branch (branch from blog-combine-reducers)
+* create `src/selectors/postSelectors.js`
+  * get all posts
+  * get a post by index
+* create `src/selectors/commentSelectors.js`
+  * get all comments by post
