@@ -17,20 +17,14 @@ export default function commentReducer(state = initialState, action) {
     }
     case DELETE_COMMENT: {
       const { postIndex, commentIndex } = payload;
-      const updatedComments = deleteFromArrayWithIndex(state.comments[postIndex], commentIndex);
-      return { comments: { ...state.comments, [postIndex]: updatedComments } };
+      return { 
+        comments: { ...state.comments, [postIndex]: [
+          ...state.comments[postIndex].slice(0, commentIndex),
+          ...state.comments[postIndex].slice(commentIndex + 1)
+        ] } 
+      };
     }
     default:
       return state;
   }
-}
-
-
-function deleteFromArrayWithIndex(arr, index) {
-  const newArray = [];  
-  for(let i = 0; i < arr.length; i++) {
-    if(i === index) continue;
-    newArray.push(arr[i]);
-  }
-  return newArray;
 }
