@@ -1,4 +1,4 @@
-import { CREATE_COMMENT, createComment } from "./commentActions";
+import { CREATE_COMMENT, createComment, deleteComment, DELETE_COMMENT } from './commentActions';
 
 describe('comment actions tests', () => {
   it('can create a comment', () => {
@@ -10,20 +10,12 @@ describe('comment actions tests', () => {
     });
   });
   
-  // it('can delete a post', () => {
-  //   const testTitle = 'test';
-  //   expect(deletePost(testTitle)).toEqual({
-  //     type: DELETE_POST,
-  //     payload: { title: testTitle }
-  //   });
-  // });
-  
-  // it('can update a post', () => {
-  //   const index = 1
-  //   const testBody = 'test test test';
-  //   expect(updatePost(index, testBody)).toEqual({
-  //     type: UPDATE_POST,
-  //     payload: { index, body: testBody }
-  //   });
-  // });
+  it('can delete a comment', () => {
+    const testPostIndex = 1;
+    const testCommentIndex = 3;
+    expect(deleteComment(testPostIndex, testCommentIndex)).toEqual({
+      type: DELETE_COMMENT,
+      payload: { postIndex: testPostIndex, commentIndex: testCommentIndex }
+    });
+  });
 });
