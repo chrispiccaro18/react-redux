@@ -16,6 +16,12 @@ describe('comment reducer tests', () => {
         1: ['another comment']
       }
     });
+    expect(initialState).toEqual({
+      comments: {
+        0: ['already comment body'],
+        1: ['another comment']
+      }
+    });
   });
   
   it('can delete a comment', () => {
