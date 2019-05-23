@@ -1,4 +1,4 @@
-import { getPosts, getPost } from './postSelectors';
+import { getPosts, getPost, getAmountOfPosts } from './postSelectors';
 
 describe('post selectors', () => {
   const state = {
@@ -29,5 +29,9 @@ describe('post selectors', () => {
         body: 'bodybodybodybody' 
       }
     );
+  });
+  
+  it('gets the amount of posts', () => {
+    expect(getAmountOfPosts(state)).toEqual(3);
   });
 });
