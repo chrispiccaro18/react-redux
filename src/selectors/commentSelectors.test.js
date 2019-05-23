@@ -1,4 +1,4 @@
-import { getComments } from './commentSelectors';
+import { getComments, getAmountOfComments } from './commentSelectors';
 
 describe('comment selectors', () => {
   const state = {
@@ -20,5 +20,9 @@ describe('comment selectors', () => {
       'second',
       'third'
     ]);
+  });
+  
+  it('gets amount of comments by post index', () => {
+    expect(getAmountOfComments(state, 2)).toEqual(3);
   });
 });
