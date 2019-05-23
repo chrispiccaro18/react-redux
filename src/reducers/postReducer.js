@@ -13,22 +13,15 @@ export default function postReducer(state = initialState, action) {
       return { posts: state.posts.filter(post => post.title !== payload.title) };
     case UPDATE_POST: {
       const { index, body } = payload;
-      const updatedPosts = updatePostWithIndex(state.posts, index, body);
+      const updatedPosts = state.posts.map((post, i) => {
+        if(index === i) {
+          return { title: post.title, body };
+        }
+        return post;
+      });
       return { posts: [...updatedPosts] };
     }
     default:
       return state;
   }
-}
-
-function updatePostWithIndex(arr, index, update) {
-  const newArray = [];
-  for(let i = 0; i < arr.length; i++) {
-    if(i === index) {
-      newArray.push({ title: arr[i].title, body: update });
-    } else {
-      newArray.push(arr[i]);
-    }
-  }
-  return newArray;
 }
