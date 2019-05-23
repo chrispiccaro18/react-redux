@@ -9,8 +9,11 @@ export default function commentReducer(state = initialState, action) {
   switch(type) {
     case CREATE_COMMENT: {
       const { postIndex, body } = payload;
-      const updatedComments = [...state.comments[postIndex], body];
-      return { comments: { ...state.comments, [postIndex]: updatedComments } };
+      if(state.comments[postIndex]) {
+        const updatedComments = [...state.comments[postIndex], body];
+        return { comments: { ...state.comments, [postIndex]: updatedComments } };
+      } 
+      return { comments: { ...state.comments, [postIndex]: [body] } };
     }
     case DELETE_COMMENT: {
       const { postIndex, commentIndex } = payload;
