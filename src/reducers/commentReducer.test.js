@@ -1,5 +1,6 @@
 import commentReducer from './commentReducer';
 import { createComment, deleteComment } from '../actions/commentActions';
+import { deletePost } from '../actions/postActions';
 
 describe('comment reducer tests', () => {
   it('can create a comment', () => {
@@ -48,6 +49,42 @@ describe('comment reducer tests', () => {
     expect(initialState).toEqual({
       0: ['already comment body'],
       1: ['another comment', 'to be deleted']
+    });
+  });
+  
+  it('can delete all comments given a post index, middle', () => {
+    const initialState = {
+      0: ['already comment body'],
+      1: ['another comment', 'to be deleted'],
+      2: ['such good', 'many thanks', 'welcomes']
+    };
+
+    expect(commentReducer(initialState, deletePost(1))).toEqual({
+      0: ['already comment body'],
+      1: ['such good', 'many thanks', 'welcomes']
+    });
+    expect(initialState).toEqual({
+      0: ['already comment body'],
+      1: ['another comment', 'to be deleted'],
+      2: ['such good', 'many thanks', 'welcomes']
+    });
+  });
+  
+  it('can delete all comments given a post index, last', () => {
+    const initialState = {
+      0: ['already comment body'],
+      1: ['another comment', 'to be deleted'],
+      2: ['such good', 'many thanks', 'welcomes']
+    };
+
+    expect(commentReducer(initialState, deletePost(2))).toEqual({
+      0: ['already comment body'],
+      1: ['another comment', 'to be deleted']
+    });
+    expect(initialState).toEqual({
+      0: ['already comment body'],
+      1: ['another comment', 'to be deleted'],
+      2: ['such good', 'many thanks', 'welcomes']
     });
   });
 });
