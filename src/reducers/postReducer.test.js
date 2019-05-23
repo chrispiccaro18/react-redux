@@ -1,5 +1,5 @@
 import postReducer from './postReducer';
-import { createPost } from '../actions/postActions';
+import { createPost, deletePost } from '../actions/postActions';
 
 describe('post reducer tests', () => {
   it('can create a post', () => {
@@ -15,6 +15,40 @@ describe('post reducer tests', () => {
         {
           title: testTitle,
           body: testBody
+        }
+      ]
+    });
+  });
+  
+  it('can delete a post', () => {
+    const initialState = {
+      posts: [
+        {
+          title: 'My Post',
+          body: 'lorem ipsum'
+        },
+        {
+          title: 'Not My Post',
+          body: 'lorem ipsum'
+        },
+        {
+          title: 'Also Not My Post',
+          body: 'lorem ipsum'
+        }
+      ]
+    };
+
+    const testTitle = 'My Post';
+
+    expect(postReducer(initialState, deletePost(testTitle))).toEqual({
+      posts: [
+        {
+          title: 'Not My Post',
+          body: 'lorem ipsum'
+        },
+        {
+          title: 'Also Not My Post',
+          body: 'lorem ipsum'
         }
       ]
     });
