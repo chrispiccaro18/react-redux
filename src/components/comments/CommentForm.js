@@ -19,6 +19,9 @@ export default class CommentForm extends PureComponent {
   handleSubmit = event => {
     event.preventDefault();
     this.props.onSubmit(this.state.body);
+    this.setState({
+      body: ''
+    });
   }
 
   render() {

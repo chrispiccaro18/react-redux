@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { getComments } from '../../selectors/commentSelectors';
 import Comments from '../../components/comments/Comments';
+import { deleteComment } from '../../actions/commentActions';
 
 const mapStateToProps = (state, props) => {
   return {
@@ -8,6 +9,13 @@ const mapStateToProps = (state, props) => {
   };
 };
 
+const mapDispatchToProps = (dispatch, props) => ({
+  deleteComment(id) {
+    dispatch(deleteComment(props.id, id));
+  }
+});
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Comments);
