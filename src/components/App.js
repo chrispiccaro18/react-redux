@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Landing from './Landing';
-import PostById from '../containers/PostById';
+import PostById from '../containers/posts/PostById';
 import Header from './Header';
 
 export default function App() {

@@ -1,6 +1,6 @@
 import React from 'react';
-import CreatePost from '../containers/CreatePost';
-import AllPosts from '../containers/AllPosts';
+import CreatePost from '../containers/posts/CreatePost';
+import AllPosts from '../containers/posts/AllPosts';
 
 export default function Landing() {
   return (
