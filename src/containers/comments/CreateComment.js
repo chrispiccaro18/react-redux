@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import { createComment } from '../../actions/commentActions';
 import CommentForm from '../../components/comments/CommentForm';
 
-const mapDispatchToProps = dispatch => ({
-  onSubmit(postIndex, body) {
-    dispatch(createComment(postIndex, body));
+const mapDispatchToProps = (dispatch, props) => ({
+  onSubmit(body) {
+    dispatch(createComment(props.id, body));
   }
 });
 

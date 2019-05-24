@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 export default class CommentForm extends PureComponent {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
-    match: PropTypes.object.isRequired
   }
 
   state = {
@@ -19,7 +18,7 @@ export default class CommentForm extends PureComponent {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.onSubmit(this.props.match.params.id, this.state.body);
+    this.props.onSubmit(this.state.body);
   }
 
   render() {
