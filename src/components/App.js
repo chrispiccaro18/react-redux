@@ -1,12 +1,13 @@
 import React from 'react';
-import CreatePost from '../containers/CreatePost';
-import AllPosts from '../containers/AllPosts';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Landing from './Landing';
 
 export default function App() {
   return (
-    <>
-      <CreatePost />
-      <AllPosts />
-    </>
+    <Router>
+      <Switch>
+        <Route path="/" component={Landing}/>
+      </Switch>
+    </Router>
   );
 }
