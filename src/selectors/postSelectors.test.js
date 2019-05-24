@@ -23,8 +23,17 @@ describe('post selectors', () => {
   });
   
   it('selects a post by id', () => {
-    expect(getPost(state, 1)).toEqual(
+    const newState = {
+      posts: [
+        { id: 0, title: 'postTitle', body: 'bodybodybody' },
+        { id: 1, title: 'postTitleOne', body: 'bodybodybodybody' },
+        { id: 2, title: 'postTitleTwo', body: 'bodybodybodybody' }
+      ]
+    };
+
+    expect(getPost(newState, 1)).toEqual(
       { 
+        id: 1,
         title: 'postTitleOne', 
         body: 'bodybodybodybody' 
       }
