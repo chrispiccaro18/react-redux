@@ -16,9 +16,9 @@ describe('post selectors', () => {
 
   it('selects all posts', () => {
     expect(getPosts(state)).toEqual([
-      { title: 'postTitle', body: 'bodybodybody' },
-      { title: 'postTitleOne', body: 'bodybodybodybody' },
-      { title: 'postTitleTwo', body: 'bodybodybodybody' }
+      { title: 'postTitle', body: 'bodybodybody', id: 0 },
+      { title: 'postTitleOne', body: 'bodybodybodybody', id: 1 },
+      { title: 'postTitleTwo', body: 'bodybodybodybody', id: 2 }
     ]);
   });
   
