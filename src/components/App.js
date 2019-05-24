@@ -7,6 +7,7 @@ export default function App() {
     <Router>
       <Switch>
         <Route path="/" component={Landing}/>
+        <Route path="/post/:id" component={} />
       </Switch>
     </Router>
   );
