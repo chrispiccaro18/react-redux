@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 function Comment({ comment }) {
   return (
     <li>
-      <p>{comment.body}</p>
+      <p>{comment}</p>
     </li>
   );
 }
 
 Comment.propTypes = {
-  comment: PropTypes.object.isRequired
+  comment: PropTypes.string.isRequired
 };
 
 export default Comment;
